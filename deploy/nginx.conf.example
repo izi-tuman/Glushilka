@@ -1,0 +1,102 @@
+# ============================================================
+# Arcwell Systems — example nginx server block
+# Serves the static site from /var/www/html over HTTPS with HTTP/2,
+# compression, caching, ETag/Last-Modified, and security headers.
+#
+# Adjust server_name and the ssl_certificate paths for your host,
+# then place this in /etc/nginx/sites-available/ and enable it.
+# ============================================================
+
+# --- Optional: enable Brotli if the ngx_brotli module is installed ---
+# brotli on;
+# brotli_comp_level 5;
+# brotli_types text/plain text/css application/javascript application/json
+#              application/manifest+json image/svg+xml application/xml;
+
+# Redirect all plain HTTP to HTTPS
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.arcwellsystems.com arcwellsystems.com;
+    return 301 https://www.arcwellsystems.com$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name www.arcwellsystems.com;
+
+    root /var/www/html;
+    index index.html;
+
+    # --- TLS (point these at your real certificate files) ---
+    ssl_certificate     /etc/ssl/certs/arcwellsystems.crt;
+    ssl_certificate_key /etc/ssl/private/arcwellsystems.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+
+    # --- gzip compression ---
+    gzip on;
+    gzip_vary on;
+    gzip_comp_level 6;
+    gzip_min_length 256;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/javascript application/json
+               application/manifest+json image/svg+xml application/xml;
+
+    # --- Correct MIME types / charset ---
+    charset utf-8;
+    types {
+        text/html                             html;
+        text/css                              css;
+        application/javascript                js;
+        image/svg+xml                         svg;
+        image/png                             png;
+        image/x-icon                          ico;
+        application/manifest+json             webmanifest json;
+        application/xml                       xml;
+        text/plain                            txt;
+    }
+
+    # ETag and Last-Modified are on by default in nginx for static files.
+    etag on;
+
+    # --- Security headers (applied to every response) ---
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests" always;
+
+    # --- Long-lived caching for static assets ---
+    location ~* \.(?:css|js|svg|png|ico)$ {
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        # Re-declare security headers because add_header does not inherit into location blocks
+        add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    }
+
+    # --- Web app manifest: shorter cache ---
+    location = /manifest.json {
+        expires 1w;
+        add_header Cache-Control "public, max-age=604800";
+    }
+
+    # --- HTML: always revalidate ---
+    location ~* \.html$ {
+        add_header Cache-Control "public, max-age=0, must-revalidate" always;
+    }
+
+    # --- Clean routing + custom 404 ---
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    error_page 404 /404.html;
+}

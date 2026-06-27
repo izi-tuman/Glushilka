@@ -1,0 +1,65 @@
+# ============================================================
+# Arcwell Systems — Apache configuration
+# Drop this file in the web root (/var/www/html). Requires:
+#   mod_deflate (or mod_brotli), mod_expires, mod_headers, mod_mime
+# ============================================================
+
+# ---- Default documents & error pages ----
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# ---- Correct Content-Type / charset ----
+AddDefaultCharset utf-8
+<IfModule mod_mime.c>
+  AddType text/html .html
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType image/svg+xml .svg
+  AddType image/x-icon .ico
+  AddType image/png .png
+  AddType application/manifest+json .webmanifest .json
+  AddType application/xml .xml
+  AddType text/plain .txt
+</IfModule>
+
+# ---- Compression (gzip / deflate). Brotli used automatically if mod_brotli present ----
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css application/javascript application/json application/manifest+json image/svg+xml application/xml
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/manifest+json image/svg+xml application/xml
+</IfModule>
+
+# ---- Caching: long-lived for static assets, revalidate HTML ----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Immutable, long cache for fingerprint-safe static assets
+  <FilesMatch "\.(css|js|svg|png|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # HTML always revalidated so content updates are picked up
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # ---- Security headers ----
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+  Header always set X-Frame-Options "DENY"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests"
+</IfModule>
+
+# ---- ETag: keep Apache's default strong validators (mtime+size+inode -> use size+mtime) ----
+FileETag MTime Size

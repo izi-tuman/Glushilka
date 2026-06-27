@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Blog — Arcwell Systems</title>
+  <meta name="description" content="Practical engineering write-ups from Arcwell Systems on frontend architecture, cloud cost, database migrations, testing, observability, API design, and incident reviews.">
+  <link rel="canonical" href="https://www.arcwellsystems.com/blog/index.html">
+  <meta name="theme-color" content="#2f5fe0">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcwell Systems">
+  <meta property="og:title" content="Engineering Blog — Arcwell Systems">
+  <meta property="og:description" content="Practical engineering write-ups from Arcwell Systems on frontend architecture, cloud cost, database migrations, testing, observability, API design, and incident reviews.">
+  <meta property="og:url" content="https://www.arcwellsystems.com/blog/index.html">
+  <meta property="og:image" content="https://www.arcwellsystems.com/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Engineering Blog — Arcwell Systems">
+  <meta name="twitter:description" content="Practical engineering write-ups from Arcwell Systems on frontend architecture, cloud cost, database migrations, testing, observability, API design, and incident reviews.">
+  <meta name="twitter:image" content="https://www.arcwellsystems.com/images/og-image.png">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preload" href="/css/styles.css" as="style">
+  <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="/index.html"><img src="/images/logo.svg" alt="Arcwell Systems" width="168" height="36"></a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links" aria-expanded="false"><span></span></button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/news/index.html">News</a></li>
+          <li><a href="/blog/index.html" aria-current="page">Blog</a></li>
+          <li><a href="/contacts.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a class="btn btn-primary" href="/contacts.html">Get in touch</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" style="padding-bottom:32px;">
+      <div class="container">
+        <div class="narrow">
+          <span class="eyebrow">Engineering blog</span>
+          <h1>Notes from the Arcwell engineering team</h1>
+          <p class="lead">Practical write-ups on the decisions, trade-offs, and small wins behind the software we build. Opinions are our own and earned the hard way.</p>
+        </div>
+      </div>
+    </section>
+    <section style="padding-top:24px;">
+      <div class="container">
+        <div class="grid grid-3">
+          <article class="post-card">
+            <a class="thumb" href="/blog/maintainable-frontend-architecture.html"><img src="/images/thumb-code.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Engineering</span>
+              <h3><a href="/blog/maintainable-frontend-architecture.html">A frontend architecture you can still understand in two years</a></h3>
+              <p>The principles we use to keep large web applications easy to change long after the initial build — boundaries, naming, and resisting premature abstraction.</p>
+              <div class="meta">12 May 2026 &middot; 8 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/cost-aware-cloud-architecture.html"><img src="/images/thumb-cloud.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Cloud</span>
+              <h3><a href="/blog/cost-aware-cloud-architecture.html">Designing cloud systems that don't surprise you on the invoice</a></h3>
+              <p>How to build for reliability without letting your monthly cloud bill drift out of control — right-sizing, autoscaling, storage tiers, and visibility.</p>
+              <div class="meta">28 April 2026 &middot; 9 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/pragmatic-database-migrations.html"><img src="/images/thumb-data.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Data</span>
+              <h3><a href="/blog/pragmatic-database-migrations.html">Database migrations without the 2 a.m. phone call</a></h3>
+              <p>The habits and guardrails that let us change production database schemas calmly and safely, even on busy systems with no maintenance window.</p>
+              <div class="meta">9 April 2026 &middot; 7 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/tests-that-earn-their-keep.html"><img src="/images/thumb-process.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Engineering</span>
+              <h3><a href="/blog/tests-that-earn-their-keep.html">Writing tests that earn their keep</a></h3>
+              <p>Why we don't chase coverage numbers, and how we decide which tests are worth writing — testing behaviour, not implementation, and trusting the pyramid.</p>
+              <div class="meta">24 March 2026 &middot; 8 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/observability-for-small-teams.html"><img src="/images/thumb-security.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Operations</span>
+              <h3><a href="/blog/observability-for-small-teams.html">Observability for small teams, without the overwhelm</a></h3>
+              <p>You don't need a wall of dashboards to run software well. The handful of signals that actually matter, and how to avoid drowning in alerts.</p>
+              <div class="meta">5 March 2026 &middot; 8 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/api-design-principles.html"><img src="/images/thumb-code.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Engineering</span>
+              <h3><a href="/blog/api-design-principles.html">Designing APIs your future self won't resent</a></h3>
+              <p>An API is a promise. The principles we follow to design interfaces that are predictable, hard to misuse, and possible to evolve without breaking everyone.</p>
+              <div class="meta">12 February 2026 &middot; 8 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/blameless-incident-reviews.html"><img src="/images/thumb-process.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Operations</span>
+              <h3><a href="/blog/blameless-incident-reviews.html">Learning from incidents without pointing fingers</a></h3>
+              <p>Things will go wrong in production. The blameless review process we use to turn outages into lasting improvements rather than into someone's bad day.</p>
+              <div class="meta">15 January 2026 &middot; 7 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/choosing-boring-technology.html"><img src="/images/thumb-security.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Engineering</span>
+              <h3><a href="/blog/choosing-boring-technology.html">In praise of boring technology</a></h3>
+              <p>Why we reach for proven, well-understood tools before novel ones, and how to spend your limited budget for novelty where it actually counts.</p>
+              <div class="meta">29 January 2026 &middot; 7 min read</div>
+            </div>
+          </article>
+          <article class="post-card">
+            <a class="thumb" href="/blog/code-review-that-helps.html"><img src="/images/thumb-team.svg" alt="" width="480" height="320"></a>
+            <div class="body">
+              <span class="tag">Engineering</span>
+              <h3><a href="/blog/code-review-that-helps.html">Code review that actually helps</a></h3>
+              <p>How we run code review as a tool for sharing knowledge and catching real problems, rather than a gate for nitpicks and personal style preferences.</p>
+              <div class="meta">26 February 2026 &middot; 7 min read</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/images/logo.svg" alt="Arcwell Systems">
+          <p>Practical software engineering and cloud integration for growing teams. Designed, built, and supported in-house.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/news/index.html">News</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/contacts.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/blog/index.html">Engineering blog</a></li>
+            <li><a href="/news/index.html">Newsroom</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Arcwell Systems Ltd. Registered in England &amp; Wales.</span>
+        <span>Maple House, 24 Carlow Street, Manchester M1 4ER, United Kingdom</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

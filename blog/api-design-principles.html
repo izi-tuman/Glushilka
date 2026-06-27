@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Designing APIs your future self won't resent — Arcwell Systems</title>
+  <meta name="description" content="An API is a promise. The principles we follow to design interfaces that are predictable, hard to misuse, and possible to evolve without breaking everyone.">
+  <link rel="canonical" href="https://www.arcwellsystems.com/blog/api-design-principles.html">
+  <meta name="theme-color" content="#2f5fe0">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Arcwell Systems">
+  <meta property="og:title" content="Designing APIs your future self won't resent — Arcwell Systems">
+  <meta property="og:description" content="An API is a promise. The principles we follow to design interfaces that are predictable, hard to misuse, and possible to evolve without breaking everyone.">
+  <meta property="og:url" content="https://www.arcwellsystems.com/blog/api-design-principles.html">
+  <meta property="og:image" content="https://www.arcwellsystems.com/images/thumb-code.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Designing APIs your future self won't resent — Arcwell Systems">
+  <meta name="twitter:description" content="An API is a promise. The principles we follow to design interfaces that are predictable, hard to misuse, and possible to evolve without breaking everyone.">
+  <meta name="twitter:image" content="https://www.arcwellsystems.com/images/thumb-code.svg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preload" href="/css/styles.css" as="style">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Designing APIs your future self won't resent",
+  "description": "An API is a promise. The principles we follow to design interfaces that are predictable, hard to misuse, and possible to evolve without breaking everyone.",
+  "datePublished": "2026-02-12",
+  "dateModified": "2026-02-12",
+  "image": "https://www.arcwellsystems.com/images/thumb-code.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Arcwell Systems"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Arcwell Systems",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.arcwellsystems.com/images/icon-512.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.arcwellsystems.com/blog/api-design-principles.html"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.arcwellsystems.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.arcwellsystems.com/blog/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Designing APIs your future self won't resent",
+      "item": "https://www.arcwellsystems.com/blog/api-design-principles.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="/index.html"><img src="/images/logo.svg" alt="Arcwell Systems" width="168" height="36"></a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links" aria-expanded="false"><span></span></button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/news/index.html">News</a></li>
+          <li><a href="/blog/index.html" aria-current="page">Blog</a></li>
+          <li><a href="/contacts.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a class="btn btn-primary" href="/contacts.html">Get in touch</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/index.html">Home</a><span>/</span><a href="/blog/index.html">Blog</a><span>/</span>Designing APIs your future self won't resent
+      </nav>
+    </div>
+    <article class="article">
+      <div class="container">
+        <div class="article-header">
+          <span class="tag">Engineering</span>
+          <h1>Designing APIs your future self won't resent</h1>
+          <div class="article-meta"><span>12 February 2026</span><span>&middot;</span><span>8 min read</span><span>&middot;</span><span>Arcwell engineering team</span></div>
+        </div>
+        <figure class="article-figure"><img src="/images/thumb-code.svg" alt="Illustration of connected services" width="920" height="480"></figure>
+        <div class="prose">
+          <p>An API is a promise to everyone who builds on it. Once another team, another system, or another company depends on the shape of your interface, you can no longer change it freely. That makes API design one of the highest-leverage decisions in software — and one of the easiest to get quietly wrong in ways that only hurt later. Here are the principles we hold to when designing one.</p>
+          <h2>Predictability beats cleverness</h2>
+          <p>The best APIs are boring. They behave the way you would guess, name things consistently, and contain no surprises. If listing one kind of resource works a certain way, listing every other kind should work the same way. If one endpoint paginates results in a particular style, they all should. Every inconsistency is something the people using your API have to learn, remember, and work around. Consistency is a feature, and it is worth more than any individual clever touch.</p>
+          <h2>Make the right thing easy and the wrong thing hard</h2>
+          <p>A well-designed interface guides people toward correct use. If a value must never be negative, the type system or validation should make a negative value impossible rather than merely discouraged. If two parameters only make sense together, the design should make it awkward to supply one without the other. Every misuse that the design itself prevents is a class of bug that simply cannot happen, and a support conversation that never needs to be had.</p>
+          <blockquote>The cost of an API is paid by everyone who uses it, every time they use it. Spend your own effort to lower theirs.</blockquote>
+          <h2>Errors are part of the interface</h2>
+          <p>How an API behaves when things go wrong is just as much a part of its design as how it behaves when things go right, and it is far more often neglected. When a request fails, the response should make clear what went wrong, whether retrying might help, and what the caller could do differently. A consistent, well-structured error format — with a stable code the caller can branch on and a human-readable message for the developer — turns failures from mysteries into something a caller can handle gracefully. Returning a generic failure with no detail just moves the debugging onto everyone who depends on you.</p>
+          <h2>Design for change from the start</h2>
+          <p>No API is right forever; the business it serves will change. The question is whether you can evolve it without breaking everyone who depends on it. The most reliable habit is to add rather than to alter: introducing new optional fields and new endpoints is safe, while removing fields, renaming them, or changing their meaning is not. We design responses so that clients ignore fields they do not recognise, which lets us add information without breaking anyone. And when a breaking change really is necessary, an explicit versioning strategy lets old and new coexist while consumers migrate at their own pace.</p>
+          <h2>Be careful what you promise</h2>
+          <p>Every detail a caller can observe risks becoming something they depend on, whether you intended it or not. The exact ordering of an unsorted list, the precise wording of a message, an internal identifier that happens to leak into a response — people will build on all of it if you let them, and then you cannot change it. We try to expose only what we mean to support, and to be deliberate about what is part of the contract and what is merely an implementation detail that callers should not rely on.</p>
+          <h2>Document with examples</h2>
+          <p>Reference documentation that lists every field is necessary but rarely sufficient. What actually helps someone get started is a concrete example: a real request and the real response it produces. We make sure our API documentation shows worked examples for the common cases, including what errors look like, because that is what people copy, adapt, and learn from. A good example is worth pages of prose.</p>
+          <h2>The interface outlives the implementation</h2>
+          <p>You can rewrite the code behind an API as many times as you like; the people depending on it will never know, as long as the promise holds. But the interface itself, once adopted, is remarkably hard to change. That asymmetry is the whole reason to slow down and get the design right at the start. The implementation is yours to change forever. The interface, in a real sense, stops being yours the moment someone else starts to rely on it — so design it for them, and for the future version of you who has to keep the promise.</p>
+          <hr style="border:none;border-top:1px solid var(--line);margin:40px 0;">
+          <p class="muted">Written by the Arcwell engineering team. If you're wrestling with something similar, <a href="/contacts.html">we're happy to compare notes</a>.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/images/logo.svg" alt="Arcwell Systems">
+          <p>Practical software engineering and cloud integration for growing teams. Designed, built, and supported in-house.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/news/index.html">News</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/contacts.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/blog/index.html">Engineering blog</a></li>
+            <li><a href="/news/index.html">Newsroom</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Arcwell Systems Ltd. Registered in England &amp; Wales.</span>
+        <span>Maple House, 24 Carlow Street, Manchester M1 4ER, United Kingdom</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
